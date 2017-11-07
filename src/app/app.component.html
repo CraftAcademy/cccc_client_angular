@@ -5,18 +5,20 @@
   </h1>
 </div>
 
-<ng-container *ngFor="let contact of contacts" class="container">
+<ng-container *ngFor="let contact of toIterable(contacts)" class="container">
   <div class="card">
-    <div class="image">
-      <img src="{{contact.image}}"/>
-    </div>
-    <div class="content">
-      <div class="location">{{contact.location}}</div>
-      <h1>{{contact.name}}</h1>
-      <h2>{{contact.role}}, {{contact.company}}</h2>
-      <p>{{contact.info}}</p>
-      {{contact.email}} |
-      <a href="http://www.twitter.com/{{contact.twitter}}">@{{contact.twitter}}</a>
-    </div>
-  </div>
+   <div class="card-image">
+     <img src="{{contact.image}}" />
+   </div>
+   <div class="content">
+     <div class="location">{{contact.location}}</div>
+     <img class="avatar" src="https://avatars.io/twitter/{{contact.twitter}}">
+     <h1>{{contact.name}}</h1>
+     <h2>{{contact.role}}</h2>
+     <h3>Currently at: {{contact.company}}</h3>
+     <p>{{contact.info}}</p>
+     <a href="mailto:{{contact.email}}">{{contact.email}}</a> |
+     <a href="http://www.twitter.com/{{contact.twitter}}">@{{contact.twitter}}</a>
+   </div>
+ </div>
 </ng-container>

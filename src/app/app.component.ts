@@ -21,6 +21,10 @@ export class AppComponent {
         //console.log(data.getModels());
         this.contacts = response.getModels();
       }
-    );
+      );
+  }
+
+  toIterable(val) {
+    return Array.from(val);
   }
 }

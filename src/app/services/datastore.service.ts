@@ -5,6 +5,7 @@ import { Contact } from '../models/contact';
 
 const config: DatastoreConfig = {
   baseUrl: 'https://ca-address-book.herokuapp.com/api',
+  //baseUrl: 'http://localhost:3000/api',
   models: {
     contacts: Contact
   }

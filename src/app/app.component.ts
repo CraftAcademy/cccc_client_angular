@@ -27,4 +27,13 @@ export class AppComponent {
   toIterable(val) {
     return Array.from(val);
   }
+
+  showContact(id) {
+    this.datastore.findRecord(Contact, id)
+      .subscribe(
+        response => {
+          console.log(response);
+        }
+      );
+  }
 }

@@ -6,7 +6,7 @@
 </div>
 
 <ng-container *ngFor="let contact of toIterable(contacts)" class="container">
-  <div class="card">
+  <div class="card" (click)="showContact(contact.id)">
    <div class="card-image">
      <img src="{{contact.image}}" />
    </div>

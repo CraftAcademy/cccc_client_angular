@@ -18,7 +18,7 @@ export class AppComponent {
     this.datastore.findAll(Contact, {
     }).subscribe(
       response => {
-        //console.log(data.getModels());
+        console.log(response.getModels());
         this.contacts = response.getModels();
       }
       );

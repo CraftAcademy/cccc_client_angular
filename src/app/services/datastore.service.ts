@@ -9,7 +9,7 @@ const config: DatastoreConfig = {
   models: {
     contacts: Contact
   }
-}
+};
 
 @Injectable()
 @JsonApiDatastoreConfig(config)

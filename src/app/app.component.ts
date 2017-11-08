@@ -1,39 +1,31 @@
 import { Component } from '@angular/core';
-import { Datastore } from './services/datastore.service'
-import { Contact } from './models/contact'
+
+import { Contact } from './models/contact';
+import { ContactService } from './services/contact.service';
 
 @Component({
   selector: 'app-root',
-  providers: [Datastore],
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  contacts: any = {};
+  contacts: Contact[];
   title = 'Contacts';
-  constructor(private datastore: Datastore) {
+
+  constructor(private contactService: ContactService) {
     this.getContacts();
   }
-  getContacts() {
-    this.datastore.findAll(Contact, {
-    }).subscribe(
-      response => {
-        console.log(response.getModels());
-        this.contacts = response.getModels();
-      }
-      );
-  }
 
-  toIterable(val) {
-    return Array.from(val);
+  getContacts(): void {
+    this.contactService.getAll()
+      .subscribe(contacts => {
+        this.contacts = contacts;
+      });
   }
-
-  showContact(id) {
-    this.datastore.findRecord(Contact, id)
-      .subscribe(
-        response => {
-          console.log(response);
-        }
-      );
+  showContact(id): void {
+    this.contactService.show(id).subscribe(contact => {
+      // Redirect to a show route for contact, for now just console.log
+      console.log(contact);
+    });
   }
 }

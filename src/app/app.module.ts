@@ -2,6 +2,10 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { JsonApiModule } from 'angular2-jsonapi';
 
+import { Datastore } from './services/datastore.service';
+
+import { ContactService } from './services/contact.service';
+
 import { AppComponent } from './app.component';
 
 @NgModule({
@@ -12,7 +16,10 @@ import { AppComponent } from './app.component';
     BrowserModule,
     JsonApiModule
   ],
-  providers: [],
+  providers: [
+    ContactService,
+    Datastore
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

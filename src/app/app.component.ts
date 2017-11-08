@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-import { Datastore } from './datastore.service'
-import { Contact } from './contact'
+import { Datastore } from './services/datastore.service'
+import { Contact } from './models/contact'
 
 @Component({
   selector: 'app-root',
